@@ -59,6 +59,35 @@ class OrderProcessor():
 
 ---
 
+## ▶️ How the Program is Run
+ 
+3 orders are created and added to the processor, then the program loops through each order to display its details and tax:
+ 
+```python
+# Step 1: Create order objects with order ID, customer name, date, and amount
+order1 = Order('001', 'Budi', '2024-01-01', 100000)
+order2 = Order('002', 'Siti', '2024-01-02', 150000)
+order3 = Order('003', 'Andi', '2024-01-03', 250000)
+ 
+# Step 2: Initialize the processor and add all orders into it
+processor = OrderProcessor()
+processor.add_order(order1)
+processor.add_order(order2)
+processor.add_order(order3)
+ 
+# Step 3: Loop through each order, display its details and calculate its tax
+for order in processor.orders:
+    order.display_order()
+    print(f'Tax: Rp. {order.calculate_tax(0.1):.2f}')
+    print('')
+ 
+# Step 4: Print the total revenue and total tax across all orders
+print(f'Total Revenue: Rp. {processor.calculate_total_revenue():.2f}')
+print(f'Total Tax: Rp. {processor.calculate_total_tax(0.1):.2f}')
+```
+
+---
+
 ## ✅ Test Result
 
 3 orders were inserted to verify the program works correctly:
